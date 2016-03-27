@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+//dagger
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.example.niuxiaowei.dagger2sample"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    //dagger start
+    apt 'com.google.dagger:dagger-compiler:2.0'
+    //dagger end
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.google.dagger:dagger:2.0'
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.android.support:support-v4:23.2.1'
+    compile 'com.google.android.gms:play-services:8.4.0'
+}
